@@ -1,0 +1,39 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class:"form-control w-25 w-sm-100" %>
+  </div>
+
+  <div>
+    <%= form.label :internal_code, class:"form-label" %>
+    <%= form.text_field :internal_code, class:"form-control w-25 w-sm-100" %>
+  </div>
+
+  <div>
+    <%= form.label :stock, class:"form-label" %>
+    <%= form.number_field :stock, disabled:"disabled", class:"form-control w-25 w-sm-100" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.file_field :image, accept:'image/*', class:"form-control w-25 w-sm-100" %>
+  </div>
+
+  
+
+
+  <div>
+    <%= form.submit "Update", class:"btn btn-sm btn-success m-3" %>
+  </div>
+<% end %>

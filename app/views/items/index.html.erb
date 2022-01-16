@@ -1,0 +1,63 @@
+
+<h1>Items</h1>
+
+<div id="items">
+
+<%= link_to "New item", new_item_path, class:"btn btn-success m-3" %>
+<%= link_to "Export to csv", export_items_path(format: 'csv'), class:"btn btn-info ms-3 m-3" %>
+  
+  <table class="table table-bordered border-primary w-75">
+    <thead>
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Code</th>
+        <th class="text-center">Stock</th>
+        <th class="text-center">Image</th>
+        <th colspan="4" class="text-center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.internal_code %></td>
+          <td><%= item.stock %></td>
+          <td><%= image_tag item.image, class:"img-thumbnail", style:"width: 50px;" if item.image.attached?%></td>
+        
+          <td class="text-center">
+            <span class="badge bg-primary">
+              <%= button_to item, method: :get, class:"btn btn-sm text-white text-decoration-none" do %>
+                Show
+              <% end %>
+            </span>
+          </td>
+          <td class="text-center">
+            <span class="badge bg-secondary">
+              <%= button_to edit_item_path(item), method: :get, class:"btn btn-sm text-white text-decoration-none" do %>
+                Edit
+              <% end %>
+            </span>
+          </td>
+          <td class="text-center">
+            <span class="badge bg-danger">
+              <%= button_to item_path(item), method: :delete, class:"btn btn-sm text-white text-decoration-none", data: { confirm:'Are you sure you want to delete?' } do %>
+                Delete
+              <% end %>
+            </span>
+          </td>
+          <td class="text-center">
+            <span class="badge bg-success">
+              <%= button_to 'Add Stock', edit_stock_path(item), params: { add_stock: 'true' }, method: :get, class:"btn btn-sm text-white text-decoration-none" %>
+            </span>
+            <span class="badge bg-danger">
+              <%= button_to 'Remove Stock', edit_stock_path(item), params: { remove_stock: 'true' }, method: :get, class:"btn btn-sm text-white text-decoration-none" %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

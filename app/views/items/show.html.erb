@@ -1,0 +1,17 @@
+
+<%= render @item %>
+
+<hr>
+<div class="d-flex">
+  <%= link_to "Edit this item", edit_item_path(@item), class:"btn btn-lg btn-primary m-3" %>
+  <%= link_to "Back to items", items_path, class:"btn btn-lg btn-secondary m-3" %>
+</div>
+  <br>
+  <br>
+  <%= button_to "Destroy this item", @item, method: :delete, class:"btn btn-sm btn-danger m-3", data: {confirm: "Are you sure?"} %>
+
+  <script>
+  $(document).on('click',"#open-AddImgDialog", function() {  
+    $('#imagemodal').modal('show');   
+});
+  </script>

@@ -1,0 +1,42 @@
+<div id="<%= dom_id item %>">
+  <p>
+    <strong>Name:</strong>
+    <%= item.name %>
+  </p>
+
+  <p>
+    <strong>Internal code:</strong>
+    <%= item.internal_code %>
+  </p>
+
+  <p>
+    <strong>Stock:</strong>
+    <%= item.stock %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <button class="btn btn-primary" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <%= image_tag item.image, style:"width: 16rem;" if item.image.attached? %>
+    </button>
+  </p>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= item.name %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= image_tag item.image, class:"img-fluid w-100" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
