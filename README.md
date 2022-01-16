@@ -29,7 +29,7 @@ Signup page:
 
 ## Live Demo
 
-Visit the [Group my activities](https://peaceful-chamber-68618.herokuapp.com/) webapp to test my app
+Visit the [Inventory tracking web application](https://tucu-shopify-be-internship.herokuapp.com/) webapp to test my app
 
 ## Prerequisites
 - Ruby 3.0.3 [(Installation steps)](https://www.ruby-lang.org/en/documentation/installation/) 
